@@ -95,7 +95,7 @@ namespace FastGithub.DomainResolve
         {
             if (this.addressElapsedCache.TryGetValue<AddressElapsed>(endPoint, out var addressElapsed))
             {
-                return addressElapsed;
+                return addressElapsed!;
             }
 
             var stopWatch = Stopwatch.StartNew();

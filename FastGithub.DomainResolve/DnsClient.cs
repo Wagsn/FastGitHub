@@ -163,7 +163,7 @@ namespace FastGithub.DomainResolve
             {
                 if (this.dnsLookupCache.TryGetValue<IList<IPAddress>>(key, out var value))
                 {
-                    return value;
+                    return value!;
                 }
                 var result = await this.LookupCoreAsync(dns, endPoint, fastSort, cancellationToken);
                 return this.dnsLookupCache.Set(key, result.Addresses, result.TimeToLive);
